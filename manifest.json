@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Checkout Coupon Tester",
+  "version": "1.0.0",
+  "description": "Automatically scrapes the web for promo codes and tests them on e-commerce checkout pages.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.amazon.com/*",
+        "https://*.ebay.com/*",
+        "https://*.walmart.com/*",
+        "https://*.target.com/*",
+        "https://*.bestbuy.com/*",
+        "https://*.shopify.com/*",
+        "https://*/*checkout*",
+        "https://*/*cart*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

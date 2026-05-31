@@ -1,0 +1,8 @@
+# Ignore secret configuration files
+config.js
+
+# Ignore OS files
+.DS_Store
+
+# Ignore dependencies if any are added later
+node_modules/
